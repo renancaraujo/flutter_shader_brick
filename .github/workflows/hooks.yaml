@@ -1,0 +1,27 @@
+name: flutter_web_preloader
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/hooks.yaml"
+      - "hooks/**"
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/hooks.yaml"
+      - "hooks/**"
+
+jobs:
+  build:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/dart_package.yml@v1
+    with:
+      working_directory: hooks
+      analyze_directories: .
+      # forgive me father for I have sinned
+      min_coverage: 0
+
