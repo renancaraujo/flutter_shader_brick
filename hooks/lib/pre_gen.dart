@@ -3,17 +3,22 @@ import 'package:mason/mason.dart';
 import 'package:path/path.dart' as path;
 import 'package:pubspec_parse/pubspec_parse.dart';
 
-Never bailOut(HookContext context) {
+void bailOut(HookContext context, Exit exit) {
   context.logger.err('Execute this brick from a Flutter Project root');
-  io.exit(69);
+  exit(69);
 }
 
-Future<void> preGen(HookContext context) async {
+typedef Exit = void Function(int code);
+
+Future<void> preGen(
+  HookContext context, [
+  Exit exit = io.exit,
+]) async {
   final cwd = io.Directory.current;
   final pubspecFile = io.File(path.join(cwd.path, 'pubspec.yaml'));
 
   if (!pubspecFile.existsSync()) {
-    bailOut(context);
+    return bailOut(context, exit);
   }
 
   final pubspec = Pubspec.parse(pubspecFile.readAsStringSync());
@@ -22,6 +27,6 @@ Future<void> preGen(HookContext context) async {
       pubspec.dependencies.keys.any((element) => element == 'flutter');
 
   if (!isFlutterProject) {
-    bailOut(context);
+    return bailOut(context, exit);
   }
 }
