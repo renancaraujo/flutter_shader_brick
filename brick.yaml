@@ -11,3 +11,8 @@ vars:
     type: string
     description: The shader name
     prompt: What is the shader file name?
+  instructions:
+    type: boolean
+    description: Whether shader should include instruction comments or not.
+    default: true
+    prompt: Include instructions comments (defaults to true)?
