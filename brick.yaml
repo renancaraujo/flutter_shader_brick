@@ -1,6 +1,6 @@
 name: flutter_shader
 description: Template for generating GLSL files to be used within a Flutter project.
-version: 0.1.1
+version: 1.0.0
 repository: https://github.com/renancaraujo/flutter_shader_brick
 
 environment:

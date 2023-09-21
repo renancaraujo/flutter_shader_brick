@@ -1,3 +1,7 @@
+# 1.0.0
+
+- feat: add instructions option
+
 # 0.1.1
 
 - fix: improve pubspec validation
