@@ -28,11 +28,7 @@ Future<void> postGen(HookContext context) async {
   } else {
     final shadersEntry = flutterEntry['shaders'];
     if (shadersEntry == null) {
-      editor.update([
-        'flutter',
-      ], {
-        'shaders': [shaderFileName],
-      });
+      editor.update(['flutter', 'shaders'], [shaderFileName]);
     } else {
       editor.appendToList(['flutter', 'shaders'], shaderFileName);
     }
