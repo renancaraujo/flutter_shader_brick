@@ -5,7 +5,7 @@ environment:
 
 dependencies:
   mason: ">=0.1.0-dev.50 <0.1.0"
-  mason_logger: ^0.2.9
+  mason_logger: ^0.3.1
   path: ^1.8.3
   pubspec_parse: ^1.2.3
   yaml_edit: ^2.1.1
