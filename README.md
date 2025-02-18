@@ -16,7 +16,7 @@ mason add -g flutter_shader
 # make a new shader )
 mason make flutter_shader --name "beautiful shader"
 
-## A glsl file is on shaders/beautiful_shader.glsl
+## A glsl file is on shaders/beautiful_shader.frag
 ## An entry for the shader is added to the pubspec.yaml file
 ```
 

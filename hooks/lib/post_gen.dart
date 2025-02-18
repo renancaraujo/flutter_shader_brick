@@ -9,14 +9,14 @@ Future<void> postGen(HookContext context) async {
   final vars = context.vars;
   final snakeNamed = (vars['name'] as String).snakeCase;
 
-  logger.info('GLSL File created at shaders/$snakeNamed.glsl');
+  logger.info('GLSL File created at shaders/$snakeNamed.frag');
 
   final cwd = io.Directory.current;
   final pubspecFile = io.File(path.join(cwd.path, 'pubspec.yaml'));
   final yaml = pubspecFile.readAsStringSync();
   final editor = YamlEditor(yaml);
   final pubspec = Pubspec.parse(pubspecFile.readAsStringSync());
-  final shaderFileName = 'shaders/$snakeNamed.glsl';
+  final shaderFileName = 'shaders/$snakeNamed.frag';
 
   final flutterEntry = pubspec.flutter;
   if (flutterEntry == null) {
