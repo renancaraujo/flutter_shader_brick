@@ -1,3 +1,7 @@
+# 1.0.2
+
+- feat: change shader file extension to `.frag`
+
 # 1.0.1
 
 - fix: dont reset flutter entry on pubspec when adding first shader
